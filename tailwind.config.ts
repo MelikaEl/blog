@@ -6,7 +6,7 @@ const config = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',//  /** har folder   /* har file /
     './src/**/*.{ts,tsx}',
 	],
   prefix: "",
