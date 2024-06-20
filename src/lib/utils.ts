@@ -1,4 +1,4 @@
-import { type ClassValue, clsx } from "clsx";
+/*import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -21,11 +21,11 @@ export function sortPosts(posts:Array<Post>){
     return 0;
   });
 }
-//crtl+shift+p : restart ts server for error reporting for TypeScript files
+//crtl+shift+p : restart ts server for error reporting for TypeScript files*/
 
 
-/* 
-import { type ClassValue, clsx } from "clsx";
+
+/*import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Post } from "#site/content";
 import { slug } from "github-slugger";
@@ -74,5 +74,33 @@ export function getPostsByTagSlug(posts: Array<Post>, tag: string) {
     const slugifiedTags = post.tags.map(tag => slug(tag))
     return slugifiedTags.includes(tag)
   })
+}*/
+
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+import { Post } from "#site/content";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
-*/
+
+export function formatDate(input: string | number): string {
+  const date = new Date(input);
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+export function sortPosts(posts: Array<Post>) {
+  return posts.sort((a, b) => {
+    if (a.date > b.date) return -1;
+    if (a.date < b.date) return 1;
+    return 0;
+  });
+}
+
+
+
+
